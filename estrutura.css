@@ -1,0 +1,30 @@
+body {
+    background-color: azure;
+}
+h1 {
+    font-family: arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    top: 50px;
+    text-align: center;
+}
+button {
+    width: 200px;
+    height: 75px;
+    background-color: rgb(228, 115, 34);
+    border-color: rgb(158, 68, 4);
+    border-width: 5px;
+    border-style: solid;
+}
+.botaodefalha {
+    position: fixed;
+    align-content: center;
+    bottom: 80px;
+}
+.primeiro {
+    position: fixed;
+    bottom: 180px;
+    left: 400px;
+}.segundo {
+    position: fixed;
+    bottom: 180px;
+    right: 400px;
+}

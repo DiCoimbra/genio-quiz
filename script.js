@@ -64,9 +64,7 @@ function verificarCorreta(escolha) {
         }
     } else {
         alert("Errou");
-        if (fase !== 2){
-            fase = fase + 1;
+            fase = 0;
             carregarConteudo();
         }
     }
-}

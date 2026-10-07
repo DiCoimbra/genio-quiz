@@ -1,6 +1,6 @@
 @media screen and (max-width: 600px) {
     button {
-        width: 25%;
+        width: 30%;
         height: 12%;
         background-color: rgb(228, 115, 34);
         border-color: rgb(158, 68, 4);
@@ -8,7 +8,6 @@
         border-style: solid;
         font-size: 120%;
         font-weight: 120%;
-        display: block;
 }
 }
   /* Para telas médias (Tablets) */
@@ -53,8 +52,8 @@ h4 {
 /*Essa tag de baixo é para o futuro*/
 .botaodefalha { 
     position: fixed;
-    align-content: center;
-    bottom: 35%;
+    bottom: 20%;
+    text-align: center;
 }
 .opcao1 {
     position: fixed;

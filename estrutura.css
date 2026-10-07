@@ -50,25 +50,27 @@ h4 {
     text-align: center;
 }
 /*Essa tag de baixo é para o futuro*/
-.botaodefalha { 
+#recomecar { 
     position: fixed;
     bottom: 20%;
     text-align: center;
 }
-.opcao1 {
+#opcao1 {
     position: fixed;
     bottom: 30%;
     left: 20%;
-}.opcao2 {
+}
+#opcao2 {
     position: fixed;
     bottom: 30%;
     right: 15%;
 }
-.opcao3 {
+#opcao3 {
     position: fixed;
     bottom: 5%;
     left: 20%;
-}.opcao4 {
+}
+#opcao4 {
     position: fixed;
     bottom: 5%;
     right: 15%;

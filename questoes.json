@@ -1,0 +1,19 @@
+{
+    "enunciados" : [
+        "Qual é o maior país do mundo em tamanho?",
+        "Qual destes países não se trata de um arquipélago?",
+        "País que sediou as olimpíadas de 2012?",
+        "Qual o nome da capital do Paraguai?"
+    ],
+
+    "alternativas" : [
+        ["Brasil", "Rússia", "Estados Unidos", "China"],
+        ["Micronésia", "Nova Zelândia", "Nepal", "Cabo Verde"],
+        ["França", "Espanha", "Reino Unido", "Suíça"],
+        ["Libertad", "Olimpia", "Ciudad Del Este", "Assunção"]
+    ],
+
+    "corretas" : [1, 2, 2, 3],
+
+    "qtd_de_fases" : 4
+}

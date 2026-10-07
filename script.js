@@ -1,5 +1,5 @@
 const h2 = document.getElementById("num-questao");
-const p = document.getElementById("enun-questao");
+const h4 = document.getElementById("enun-questao");
 
 const opcao1 = document.getElementById("opcao1");
 const opcao2 = document.getElementById("opcao2");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function carregarConteudo() {
     h2.innerHTML = "Questão " + (fase + 1);
-    p.innerHTML = questoes[fase];
+    h4.innerHTML = questoes[fase];
 
     opcao1.innerHTML = opcoes[fase][0];
     opcao2.innerHTML = opcoes[fase][1];

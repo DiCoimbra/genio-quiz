@@ -9,13 +9,14 @@ const opcao4 = document.getElementById("opcao4");
 const botaorecomecar = document.getElementById("recomecar");
 
 let fase = 0;
+localStorage.setItem('erros', +0);
 
 document.addEventListener("DOMContentLoaded", function() {
     carregarConteudo();
 });
 
-function obterDados() {
-    return fetch("questoes.json")
+function obterDados(arquivo) {
+    return fetch(arquivo)
         .then(resposta => {
             if (!resposta.ok) {
                 throw new Error("Sem resposta");
@@ -36,7 +37,7 @@ function obterDados() {
 }
 
 function carregarConteudo() {
-    obterDados().then(dados => {
+    obterDados("questoes.json").then(dados => {
         const enunciados = dados["enunciados"];
         const alternativas = dados["alternativas"];
 
@@ -79,7 +80,7 @@ function recomecar() {
 }
 
 function verificarCorreta(escolha) {
-    obterDados().then(dados => {
+    obterDados("questoes.json").then(dados => {
         const corretas = dados["corretas"];
         const qtd_de_fases = dados["qtd_de_fases"];
 
@@ -91,16 +92,25 @@ function verificarCorreta(escolha) {
             }
         } else {
             alert("Errou");
+
+            const erros = +localStorage.getItem('erros');
+            localStorage.setItem('erros', erros + 1);
+
             telaDeRecomeco();
         }
     })
 }
 
 function telaDeRecomeco() {
+    const erros = localStorage.getItem('erros');
+
     opcao1.setAttribute("hidden", true);
     opcao2.setAttribute("hidden", true);
     opcao3.setAttribute("hidden", true);
     opcao4.setAttribute("hidden", true);
+
+    h2.innerHTML = "Erros: " + erros;
+
 
     botaorecomecar.removeAttribute("hidden");
 }

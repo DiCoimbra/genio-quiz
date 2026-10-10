@@ -6,16 +6,22 @@
     <title>Gênio Quiz</title>
     <link rel="stylesheet" href="estrutura.css">
 </head>
-<div>
+<body>
+    <div class="comecodoquiz">
+        <button onclick="botaoDeComecar()" id="botao-comecar">Começar</button>
+    </div>
+
     <h1>Gênio Quiz</h1>
     <h2 id="num-questao"></h2>
     <h4 id="enun-questao"></h4>
+
     <br>
-    <button onclick="clicou1()" id="opcao1">---------------</button>
-    <button onclick="clicou2()" id="opcao2">---------------</button>
+    <button onclick="clicou1()" id="opcao1" class="botoes-alternativas" hidden>---------------</button>
+    <button onclick="clicou2()" id="opcao2" class="botoes-alternativas" hidden>---------------</button>
     <br>
-    <button onclick="clicou3()" id="opcao3">---------------</button>
-    <button onclick="clicou4()" id="opcao4">---------------</button>
+    <button onclick="clicou3()" id="opcao3" class="botoes-alternativas" hidden>---------------</button>
+    <button onclick="clicou4()" id="opcao4" class="botoes-alternativas" hidden>---------------</button>
+     
     <button onclick="recomecar()" id="recomecar" hidden>Recomeçar</button>
     <script src="script.js"></script>
 </body>

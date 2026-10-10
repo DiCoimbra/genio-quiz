@@ -50,6 +50,11 @@ h4 {
     text-align: center;
 }
 /*Essa tag de baixo é para o futuro*/
+#botao-comecar {
+    position: fixed;
+    bottom: 60%;
+    text-align: center;
+}
 #recomecar { 
     position: fixed;
     bottom: 20%;

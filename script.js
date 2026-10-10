@@ -1,3 +1,5 @@
+//SETOR DE VARIÁVEIS
+//Se possível, declarem suas variáveis nesse primeiro setor do código pra deixar organizado
 const h2 = document.getElementById("num-questao");
 const h4 = document.getElementById("enun-questao");
 
@@ -6,17 +8,18 @@ const opcao2 = document.getElementById("opcao2");
 const opcao3 = document.getElementById("opcao3");
 const opcao4 = document.getElementById("opcao4");
 
-const botaorecomecar = document.getElementById("recomecar");
+const botoes_alternativas = document.querySelectorAll('.botoes-alternativas');
 
-let fase = 0;
+const botaorecomecar = document.getElementById("recomecar");
+const botao_comecar = document.getElementById("botao-comecar");
+const div_botao_comecar = document.querySelectorAll(".comecodoquiz");
+
 localStorage.setItem('erros', +0);
 
-document.addEventListener("DOMContentLoaded", function() {
-    carregarConteudo();
-});
+let fase = 0;
 
-function obterDados(arquivo) {
-    return fetch(arquivo)
+function obterDados() { 
+    return fetch("questoes.json")
         .then(resposta => {
             if (!resposta.ok) {
                 throw new Error("Sem resposta");
@@ -37,7 +40,8 @@ function obterDados(arquivo) {
 }
 
 function carregarConteudo() {
-    obterDados("questoes.json").then(dados => {
+    
+    obterDados().then(dados => {
         const enunciados = dados["enunciados"];
         const alternativas = dados["alternativas"];
 
@@ -49,6 +53,18 @@ function carregarConteudo() {
         opcao3.innerHTML = alternativas[fase][2];
         opcao4.innerHTML = alternativas[fase][3];
     })
+}
+
+function botaoDeComecar() {
+    div_botao_comecar.forEach(function(div) {
+        div.hidden = true;
+    })
+
+    botoes_alternativas.forEach(function(button) {
+        button.removeAttribute("hidden");
+    })
+
+    carregarConteudo();
 }
 
 function clicou1() {
@@ -67,6 +83,28 @@ function clicou4() {
     verificarCorreta(3);
 }
 
+function verificarCorreta(escolha) {
+    obterDados().then(dados => {
+        const corretas = dados["corretas"];
+        const qtd_de_fases = dados["qtd_de_fases"];
+
+        if (escolha === corretas[fase]) {
+            alert("Acertou");
+            if (fase !== (qtd_de_fases - 1)) {
+                fase = fase + 1;
+                carregarConteudo();
+            }
+        } else {
+            alert("Errou");
+            
+            const erros = +localStorage.getItem('erros');
+            localStorage.setItem('erros', erros + 1);
+
+            telaDeRecomeco();
+        }
+    })
+}
+
 function recomecar() {
     opcao1.removeAttribute("hidden");
     opcao2.removeAttribute("hidden");
@@ -79,38 +117,14 @@ function recomecar() {
     carregarConteudo();
 }
 
-function verificarCorreta(escolha) {
-    obterDados("questoes.json").then(dados => {
-        const corretas = dados["corretas"];
-        const qtd_de_fases = dados["qtd_de_fases"];
-
-        if (escolha === corretas[fase]) {
-            alert("Acertou");
-            if (fase !== (qtd_de_fases - 1)) {
-                fase = fase + 1;
-                carregarConteudo();
-            }
-        } else {
-            alert("Errou");
-
-            const erros = +localStorage.getItem('erros');
-            localStorage.setItem('erros', erros + 1);
-
-            telaDeRecomeco();
-        }
-    })
-}
-
 function telaDeRecomeco() {
-    const erros = localStorage.getItem('erros');
-
     opcao1.setAttribute("hidden", true);
     opcao2.setAttribute("hidden", true);
     opcao3.setAttribute("hidden", true);
     opcao4.setAttribute("hidden", true);
 
+    const erros = localStorage.getItem('erros');
     h2.innerHTML = "Erros: " + erros;
-
 
     botaorecomecar.removeAttribute("hidden");
 }

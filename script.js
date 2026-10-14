@@ -13,7 +13,7 @@ const botoes_alternativas = document.querySelectorAll('.botoes-alternativas');
 const botaorecomecar = document.getElementById("recomecar");
 const botao_comecar = document.getElementById("botao-comecar");
 const div_botao_comecar = document.querySelectorAll(".comecodoquiz");
-
+const final = document.getElementById("final");
 localStorage.setItem('erros', +0);
 
 let fase = 0;
@@ -88,15 +88,14 @@ function verificarCorreta(escolha) {
         const corretas = dados["corretas"];
         const qtd_de_fases = dados["qtd_de_fases"];
 
-        if (escolha === corretas[fase]) {
-            alert("Acertou");
-            if (fase !== (qtd_de_fases - 1)) {
-                fase = fase + 1;
+      if (escolha === corretas[fase]) {
+            if (fase === qtd_de_fases - 1) {
+                teladefinal();
+            } else {
+                fase++;
                 carregarConteudo();
             }
         } else {
-            alert("Errou");
-            
             const erros = +localStorage.getItem('erros');
             localStorage.setItem('erros', erros + 1);
 
@@ -127,4 +126,15 @@ function telaDeRecomeco() {
     h2.innerHTML = "Erros: " + erros;
 
     botaorecomecar.removeAttribute("hidden");
+}
+
+function teladefinal() {
+    opcao1.setAttribute("hidden", true);
+    opcao2.setAttribute("hidden", true);
+    opcao3.setAttribute("hidden", true);
+    opcao4.setAttribute("hidden", true);
+
+    final.setAttribute("hidden", false);
+
+     telaDeRecomeco()
 }

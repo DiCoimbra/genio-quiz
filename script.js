@@ -8,6 +8,8 @@ const opcao2 = document.getElementById("opcao2");
 const opcao3 = document.getElementById("opcao3");
 const opcao4 = document.getElementById("opcao4");
 
+const final = document.getElementById("final");
+
 const botoes_alternativas = document.querySelectorAll('.botoes-alternativas');
 
 const botaorecomecar = document.getElementById("recomecar");
@@ -56,6 +58,7 @@ function carregarConteudo() {
 
 function botaoDeComecar() {
     botao_comecar.setAttribute("hidden", true);
+    h2.removeAttribute("hidden");
     h4.removeAttribute("hidden");
     botoes_alternativas.forEach(function(button) {
         button.removeAttribute("hidden");
@@ -79,21 +82,19 @@ function clicou3() {
 function clicou4() {
     verificarCorreta(3);
 }
-
 function verificarCorreta(escolha) {
     obterDados().then(dados => {
         const corretas = dados["corretas"];
         const qtd_de_fases = dados["qtd_de_fases"];
 
-        if (escolha === corretas[fase]) {
-            alert("Acertou");
-            if (fase !== (qtd_de_fases - 1)) {
-                fase = fase + 1;
+      if (escolha === corretas[fase]) {
+            if (fase === qtd_de_fases - 1) {
+                teladefinal();
+            } else {
+                fase++;
                 carregarConteudo();
             }
         } else {
-            alert("Errou");
-            
             const erros = +localStorage.getItem('erros');
             localStorage.setItem('erros', erros + 1);
 
@@ -105,6 +106,10 @@ function verificarCorreta(escolha) {
 function recomecar() {
     botaorecomecar.setAttribute("hidden", true);
     botao_comecar.removeAttribute("hidden");
+
+    h2.setAttribute("hidden", true);
+
+    final.setAttribute("hidden", true);
     
     fase = 0;
     carregarConteudo();
@@ -121,4 +126,16 @@ function telaDeRecomeco() {
     h2.innerHTML = "Erros: " + erros;
 
     botaorecomecar.removeAttribute("hidden");
+}
+function teladefinal() {
+    opcao1.setAttribute("hidden", true);
+    opcao2.setAttribute("hidden", true);
+    opcao3.setAttribute("hidden", true);
+    opcao4.setAttribute("hidden", true);
+
+    h4.setAttribute("hidden", true);
+
+    final.removeAttribute("hidden");
+
+    telaDeRecomeco()
 }

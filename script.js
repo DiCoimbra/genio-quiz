@@ -12,7 +12,6 @@ const botoes_alternativas = document.querySelectorAll('.botoes-alternativas');
 
 const botaorecomecar = document.getElementById("recomecar");
 const botao_comecar = document.getElementById("botao-comecar");
-const div_botao_comecar = document.querySelectorAll(".comecodoquiz");
 
 localStorage.setItem('erros', +0);
 
@@ -56,10 +55,8 @@ function carregarConteudo() {
 }
 
 function botaoDeComecar() {
-    div_botao_comecar.forEach(function(div) {
-        div.hidden = true;
-    })
-
+    botao_comecar.setAttribute("hidden", true);
+    h4.removeAttribute("hidden");
     botoes_alternativas.forEach(function(button) {
         button.removeAttribute("hidden");
     })
@@ -106,12 +103,8 @@ function verificarCorreta(escolha) {
 }
 
 function recomecar() {
-    opcao1.removeAttribute("hidden");
-    opcao2.removeAttribute("hidden");
-    opcao3.removeAttribute("hidden");
-    opcao4.removeAttribute("hidden");
-
     botaorecomecar.setAttribute("hidden", true);
+    botao_comecar.removeAttribute("hidden");
     
     fase = 0;
     carregarConteudo();
@@ -122,6 +115,7 @@ function telaDeRecomeco() {
     opcao2.setAttribute("hidden", true);
     opcao3.setAttribute("hidden", true);
     opcao4.setAttribute("hidden", true);
+    h4.hidden = true;
 
     const erros = localStorage.getItem('erros');
     h2.innerHTML = "Erros: " + erros;

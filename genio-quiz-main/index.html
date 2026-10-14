@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gênio Quiz</title>
+    <link rel="stylesheet" href="estrutura.css">
+</head>
+<body>
+    <button onclick="botaoDeComecar()" id="botao-comecar">Começar</button>
+    <h1>Gênio Quiz</h1>
+    <h2 id="num-questao"></h2>
+    <h4 id="enun-questao"></h4>
+    <p id="final" hidden>Você terminou essa desgraça!</p>
+
+    <br>
+    <button onclick="clicou1()" id="opcao1" class="botoes-alternativas" hidden>---------------</button>
+    <button onclick="clicou2()" id="opcao2" class="botoes-alternativas" hidden>---------------</button>
+    <br>
+    <button onclick="clicou3()" id="opcao3" class="botoes-alternativas" hidden>---------------</button>
+    <button onclick="clicou4()" id="opcao4" class="botoes-alternativas" hidden>---------------</button>
+     
+    <button onclick="recomecar()" id="recomecar" hidden>Recomeçar</button>
+    <script src="script.js"></script>
+</body>
+</html>

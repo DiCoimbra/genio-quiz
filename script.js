@@ -12,13 +12,11 @@ const final = document.getElementById("mensagem-final");
 
 const botoes_alternativas = document.querySelectorAll('.botoes-alternativas');
 
-const botaorecomecar = document.getElementById("recomecar");
+const botao_recomecar = document.getElementById("recomecar");
 const botao_comecar = document.getElementById("botao-comecar");
 const botao_instrucoes = document.getElementById("botao-instrucoes");
 
 localStorage.getItem('erros') || localStorage.setItem('erros', +0);
-
-let fase = 0;
 
 function obterDados() { 
     return fetch("questoes.json")
@@ -67,6 +65,7 @@ function botaoDeComecar() {
         button.removeAttribute("hidden");
     })
 
+    fase = 0;
     carregarConteudo();
 }
 
@@ -76,6 +75,9 @@ function botaoDeInstrucoes() {
 
         botao_instrucoes.setAttribute("hidden", true);
         botao_comecar.setAttribute("hidden", true);
+
+        botao_recomecar.innerHTML = "Voltar";
+        botao_recomecar.removeAttribute("hidden");
         
         h4.removeAttribute("hidden");
         h4.innerHTML = mensagem;
@@ -119,10 +121,11 @@ function verificarCorreta(escolha) {
 }
 
 function recomecar() {
-    botaorecomecar.setAttribute("hidden", true);
+    botao_recomecar.setAttribute("hidden", true);
     botao_comecar.removeAttribute("hidden");
     botao_instrucoes.removeAttribute("hidden");
 
+    h4.setAttribute("hidden", true);
     h2.setAttribute("hidden", true);
     final.setAttribute("hidden", true);
     
@@ -140,7 +143,8 @@ function telaDeRecomeco() {
     const erros = localStorage.getItem('erros');
     h2.innerHTML = "Erros: " + erros;
 
-    botaorecomecar.removeAttribute("hidden");
+    botao_recomecar.innerHTML = "Recomeçar";
+    botao_recomecar.removeAttribute("hidden");
 }
 
 function telaDeFinal() {

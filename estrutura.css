@@ -1,13 +1,17 @@
+button {
+    background-color: rgb(228, 115, 34);
+    border-color: rgb(158, 68, 4);
+    border-style: solid;
+    font-size: 120%;
+    font-weight: 120%;
+}
+
+  /* Para telas pequenas (Celulares( */
 @media screen and (max-width: 600px) {
     button {
         width: 30%;
         height: 12%;
-        background-color: rgb(228, 115, 34);
-        border-color: rgb(158, 68, 4);
         border-width: 3pt;
-        border-style: solid;
-        font-size: 120%;
-        font-weight: 120%;
 }
 }
   /* Para telas médias (Tablets) */
@@ -15,73 +19,76 @@
     button {
         width: 23%;
         height: 12%;
-        background-color: rgb(228, 115, 34);
-        border-color: rgb(158, 68, 4);
         border-width: 4pt;
-        border-style: solid;
-        font-size: 120%;
-        font-weight: 120%;
 }
-}  
+}
+  /* Para telas grandes (Computadores/Televisões) */
 @media screen and (min-width: 1025px) {
     button {
         width: 20%;
         height: 12%;
-        background-color: rgb(228, 115, 34);
-        border-color: rgb(158, 68, 4);
         border-width: 5pt;
-        border-style: solid;
-        font-size: 120%;
-        font-weight: 120%;
     }
 }
+
 body {
     background-color: azure;
 }
+
 h1 {
     font-family: arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     top: 10%;
     text-align: center;
 }
+
 h4 {
     font-family: sans-serif;
     font-weight: 100%;
     font-size: 140%;
+    max-width: 60%;
+    margin: 0 auto;
     text-align: center;
 }
+
 p {
     font-family: sans-serif;
     font-weight: 100%;
     font-size: 140%;
     text-align: center;
 }
+
 #botao-comecar {
     position: fixed;
     bottom: 60%;
     right: 40%;
     left: 40%;
 }
+
 #recomecar { 
     position: fixed;
     bottom: 20%;
     right: 40%;
     left: 40%;
 }
+
 #opcao1 {
     position: fixed;
     bottom: 30%;
     left: 20%;
 }
+
 #opcao2 {
     position: fixed;
     bottom: 30%;
     right: 15%;
 }
+
 #opcao3 {
     position: fixed;
     bottom: 5%;
     left: 20%;
 }
+
 #opcao4 {
     position: fixed;
     bottom: 5%;

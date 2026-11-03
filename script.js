@@ -15,6 +15,8 @@ const botoes_alternativas = document.querySelectorAll('.botoes-alternativas');
 const botao_recomecar = document.getElementById("recomecar");
 const botao_comecar = document.getElementById("botao-comecar");
 const botao_instrucoes = document.getElementById("botao-instrucoes");
+const botao_leaderboard = document.getElementById("botao-leaderboard");
+const Tabela_HTML = document.getElementById("Tabela-HTML");
 
 localStorage.getItem('erros') || localStorage.setItem('erros', +0);
 
@@ -58,6 +60,7 @@ function carregarConteudo() {
 function botaoDeComecar() {
     botao_comecar.setAttribute("hidden", true);
     botao_instrucoes.setAttribute("hidden", true);
+    botao_leaderboard.setAttribute("hidden", true);
     h2.removeAttribute("hidden");
     h4.removeAttribute("hidden");
 
@@ -124,6 +127,8 @@ function recomecar() {
     botao_recomecar.setAttribute("hidden", true);
     botao_comecar.removeAttribute("hidden");
     botao_instrucoes.removeAttribute("hidden");
+    botao_leaderboard.removeAttribute("hidden");
+    Tabela_HTML.hidden = true;
 
     h4.setAttribute("hidden", true);
     h2.setAttribute("hidden", true);
@@ -154,4 +159,13 @@ function telaDeFinal() {
     final.removeAttribute("hidden");
 
     telaDeRecomeco()
+}
+
+function tabelaTemporario() {
+    botao_comecar.hidden = true;
+    botao_instrucoes.hidden = true;
+    botao_leaderboard.hidden = true;
+    botao_recomecar.removeAttribute("hidden");
+    botao_recomecar.innerHTML = "Voltar";
+    Tabela_HTML.removeAttribute("hidden");
 }

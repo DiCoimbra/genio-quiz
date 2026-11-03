@@ -1,14 +1,43 @@
+<?php
+// Configurações do Banco de Dados
+
+$host    = 'localhost';
+$db      = 'yesyes';
+$user    = 'root'; // Usuário padrão do XAMPP/Laragon
+$pass    = '';     // Senha padrão (em branco no XAMPP)
+
+$dsn = "mysql:host=$host;dbname=$db";
+try {
+    $pdo = new PDO($dsn, $user, $pass);
+} catch (PDOException $e) {
+    die("Seu código é um lixo: " . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gênio Quiz</title>
+    <title>YES YES!!</title>
     <link rel="stylesheet" href="estrutura.css">
 </head>
 <body>
+    <table id="Tabela-HTML" cellspacing="0" border="1" hidden>
+        <tr>
+            <th>COISAS</th>
+            <th>MAIS COISAS</th>
+            <th>MENOS COISAS</th>
+        </tr>
+        <tr>
+            <td>Olá, <?php echo "John"; ?></td>
+            <td>Ola, <?php echo "DIEEEGO"; ?></td>
+            <td>Olá, <?php echo "Vitor sem C" ; ?></td>
+        </tr>
+    </table>
+
     <button onclick="botaoDeComecar()" id="botao-comecar">Começar</button>
     <button onclick="botaoDeInstrucoes()" id="botao-instrucoes">Instruções</button>
+    <button onclick="tabelaTemporario()" id="botao-leaderboard">Tabela em fazimento</button>
 
     <h1>Gênio Quiz</h1>
     <h2 id="num-questao"></h2>

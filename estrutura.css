@@ -31,6 +31,52 @@ button {
     }
 }
 
+
+/* Configuração geral da tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Transforma bordas duplas em linhas únicas e limpas */
+            margin: 20px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+            border-radius: 8px;
+            overflow: hidden; /* Garante que os cantos arredondados funcionem */
+        }
+
+        /* Estilização do Cabeçalho (Header) */
+        th {
+            background-color: #4A90E2; /* Cor azul moderna */
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Estilização das Células (Cabeçalho e Conteúdo) */
+        th, td {
+            padding: 12px 15px; /* Espaçamento interno idêntico que garante a simetria */
+            text-align: left; /* Alinhamento padrão à esquerda */
+            border-bottom: 1px solid #E0E0E0; /* Linha divisória sutil */
+        }
+
+        /* Efeito "Zebra" (Linhas alternadas para facilitar a leitura) */
+        tbody tr:nth-child(even) {
+            background-color: #F8F9FA;
+        }
+
+        /* Efeito de Hover (Destaque ao passar o mouse) */
+        tbody tr:hover {
+            background-color: #F1F3F5;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Ajuste de simetria para números (Opcional) */
+        .num {
+            text-align: right;
+        }
+
+
 body {
     background-color: azure;
 }
@@ -64,6 +110,20 @@ p {
     left: 40%;
 }
 
+#botao-instrucoes {
+    position: fixed;
+    bottom: 40%;
+    right: 40%;
+    left: 40%;
+}
+
+#botao-leaderboard {
+    position: fixed;
+    bottom: 20%;
+    right: 40%;
+    left: 40%;
+}
+
 #recomecar { 
     position: fixed;
     bottom: 20%;
@@ -80,7 +140,7 @@ p {
 #opcao2 {
     position: fixed;
     bottom: 30%;
-    right: 15%;
+    right: 20%;
 }
 
 #opcao3 {
@@ -92,5 +152,5 @@ p {
 #opcao4 {
     position: fixed;
     bottom: 5%;
-    right: 15%;
+    right: 20%;
 }

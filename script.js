@@ -40,19 +40,50 @@ function obterDados() {
 }
 
 function carregarConteudo() {
-    
     obterDados().then(dados => {
         const enunciados = dados["enunciados"];
         const alternativas = dados["alternativas"];
+        const corretas = dados["corretas"];
 
         h2.innerHTML = "Questão " + (fase + 1);
         h4.innerHTML = enunciados[fase];
+
+        if (Array.isArray(corretas[fase])) {
+            const tipo = corretas[fase][0];
+
+            if (tipo === "bt-numero") {
+                h2.innerHTML = 'Questão <button id="bt-numero" onclick="botaoEspecial()">' + (fase + 1) + "</button>";
+            } else if (tipo === "bt-inline") {
+                let palavra = "";
+                let contador = 0;
+                const txt = enunciados[fase];
+                
+                for (let i = 0; i < txt.length; i++) {
+                    if (txt[i] !== " ") {
+                        palavra += txt[i];
+                    } else if (palavra === corretas[fase][1]) {
+                        contador++;
+                        if (contador !== corretas[fase][2]) {
+                            palavra = "";
+                            continue
+                        }
+                        const txt_anterior = txt.slice(0, i - palavra.length);
+                        const txt_posterior = txt.slice(i);
+
+                        h4.innerHTML = txt_anterior + '<button id="bt-inline" onclick="botaoEspecial()">' + palavra + '</button>' + txt_posterior;
+                        break
+                    } else {
+                        palavra = "";
+                    }
+                }
+            }
+        }
 
         opcao1.innerHTML = alternativas[fase][0];
         opcao2.innerHTML = alternativas[fase][1];
         opcao3.innerHTML = alternativas[fase][2];
         opcao4.innerHTML = alternativas[fase][3];
-    })
+    })  
 }
 
 function botaoDeComecar() {
@@ -99,6 +130,18 @@ function clicou3() {
 function clicou4() {
     verificarCorreta(3);
 }
+
+function botaoEspecial() {
+    obterDados().then(dados => {
+        const qtd_de_fases = dados["qtd_de_fases"];
+
+        if (fase !== qtd_de_fases - 1) {
+            fase++;
+            carregarConteudo();
+        }
+    })
+}
+
 function verificarCorreta(escolha) {
     obterDados().then(dados => {
         const corretas = dados["corretas"];

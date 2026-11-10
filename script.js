@@ -138,6 +138,8 @@ function botaoEspecial() {
         if (fase !== qtd_de_fases - 1) {
             fase++;
             carregarConteudo();
+        } else {
+            telaDeFinal();
         }
     })
 }

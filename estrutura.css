@@ -12,7 +12,31 @@ button {
         width: 30%;
         height: 12%;
         border-width: 3pt;
-}
+    }
+    
+    #opcao1 {
+    position: fixed;
+    bottom: 30%;
+    left: 15%;
+    }
+
+    #opcao2 {
+    position: fixed;
+    bottom: 30%;
+    right: 15%;
+    }
+
+    #opcao3 {
+    position: fixed;
+    bottom: 5%;
+    left: 15%;
+    }
+
+    #opcao4 {
+    position: fixed;
+    bottom: 5%;
+    right: 15%;
+    }
 }
   /* Para telas médias (Tablets) */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
@@ -20,7 +44,31 @@ button {
         width: 23%;
         height: 12%;
         border-width: 4pt;
-}
+    }
+ 
+    #opcao1 {
+    position: fixed;
+    bottom: 30%;
+    left: 18%;
+    }
+
+    #opcao2 {
+    position: fixed;
+    bottom: 30%;
+    right: 18%;
+    }
+
+    #opcao3 {
+    position: fixed;
+    bottom: 5%;
+    left: 18%;
+    }
+
+    #opcao4 {
+    position: fixed;
+    bottom: 5%;
+    right: 18%;
+    }
 }
   /* Para telas grandes (Computadores/Televisões) */
 @media screen and (min-width: 1025px) {
@@ -28,6 +76,30 @@ button {
         width: 20%;
         height: 12%;
         border-width: 5pt;
+    }
+    
+    #opcao1 {
+    position: fixed;
+    bottom: 30%;
+    left: 20%;
+    }
+
+    #opcao2 {
+    position: fixed;
+    bottom: 30%;
+    right: 20%;
+    }
+
+    #opcao3 {
+    position: fixed;
+    bottom: 5%;
+    left: 20%;
+    }
+
+    #opcao4 {
+    position: fixed;
+    bottom: 5%;
+    right: 20%;
     }
 }
 
@@ -131,26 +203,19 @@ p {
     left: 40%;
 }
 
-#opcao1 {
+#botaotemp {
     position: fixed;
-    bottom: 30%;
-    left: 20%;
+    bottom: 40%;
+    right: 40%;
+    left: 40%;
 }
 
-#opcao2 {
+.barradoranked {
     position: fixed;
-    bottom: 30%;
-    right: 20%;
-}
-
-#opcao3 {
-    position: fixed;
-    bottom: 5%;
-    left: 20%;
-}
-
-#opcao4 {
-    position: fixed;
-    bottom: 5%;
-    right: 20%;
+    width: 50%;
+    left: 25%;
+    height: 2%;
+    bottom: 60%;
+    border-radius: 5pt 5pt 5pt 5pt;
+    background-color: salmon;
 }

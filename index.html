@@ -3,7 +3,7 @@
 
 $host    = 'localhost';
 $db      = 'yesyes';
-$user    = 'root'; // Usuário padrão do XAMPP/Laragon
+$user    = 'root'; // Usuário padrão do XAMPP
 $pass    = '';     // Senha padrão (em branco no XAMPP)
 
 $dsn = "mysql:host=$host;dbname=$db";
@@ -18,20 +18,20 @@ try {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>YES YES!!</title>
+    <title>Puzzle para Inteligentes</title>
     <link rel="stylesheet" href="estrutura.css">
 </head>
 <body>
     <table id="Tabela-HTML" cellspacing="0" border="1" hidden>
         <tr>
-            <th>COISAS</th>
-            <th>MAIS COISAS</th>
-            <th>MENOS COISAS</th>
+            <th id="user_ranked" >USUÁRIO</th>
+            <th>PONTOS</th>
+            <th id="data_ranked" >DATA</th>
         </tr>
         <tr>
-            <td>Olá, <?php echo "John"; ?></td>
-            <td>Ola, <?php echo "DIEEEGO"; ?></td>
-            <td>Olá, <?php echo "Vitor sem C" ; ?></td>
+            <td><?php echo "John"; ?></td>
+            <td id="points_ranked">1000</td>
+            <td><?php echo "11/09/2001" ; ?></td>
         </tr>
     </table>
 
@@ -51,6 +51,9 @@ try {
     <button onclick="clicou3()" id="opcao3" class="botoes-alternativas" hidden>---------------</button>
     <button onclick="clicou4()" id="opcao4" class="botoes-alternativas" hidden>---------------</button>
     <button onclick="recomecar()" id="recomecar" hidden></button>
+    <button onclick="temporario()" id="botaotemp" hidden>Temporizador</button>
+
+    <div id="barra_ranked" class="barradoranked" hidden></div>
 
     <script src="script.js"></script>
 </body>

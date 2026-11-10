@@ -15,7 +15,7 @@
         ["Marcar", "Comércio", "Suspensão", "Ângulo"]
     ],
 
-    "corretas" : [1, 2, 2, 3, ["bt-inline", "palavra"]],
+    "corretas" : [1, 2, 2, 3, ["bt-inline", "palavra", 1]],
 
     "qtd_de_fases" : 5,
 

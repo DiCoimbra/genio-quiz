@@ -4,7 +4,8 @@
         "Qual destes países não se trata de um arquipélago?",
         "País que sediou as olimpíadas de 2012?",
         "Qual o nome da capital do Paraguai?",
-        "Qual palavra tem 7 letras?"
+        "Qual palavra tem palavra 7 letras?",
+        "Quem é mais gay?"
     ],
 
     "alternativas" : [
@@ -12,12 +13,13 @@
         ["Micronésia", "Nova Zelândia", "Nepal", "Cabo Verde"],
         ["França", "Espanha", "Reino Unido", "Suíça"],
         ["Libertad", "Olimpia", "Ciudad Del Este", "Assunção"],
-        ["Marcar", "Comércio", "Suspensão", "Ângulo"]
+        ["Marcar", "Comércio", "Suspensão", "Ângulo"],
+        ["Gabriel", "Henderson", "Davi", "André"]
     ],
 
-    "corretas" : [1, 2, 2, 3, ["bt-inline", "palavra"]],
+    "corretas" : [1, 2, 2, 3, ["bt-inline", "palavra", 2], ["bt-inline", "gay", 1]],
 
-    "qtd_de_fases" : 5,
+    "qtd_de_fases" : 6,
 
     "instrucoes" : "Para avançar pelas 50 questões sem frustrações, a regra de ouro é desconfiar de tudo, pois as respostas raramente são óbvias e o jogo foi feito para induzir ao erro. Muitas vezes, a alternativa correta não está nos botões principais, mas sim escondida no número da própria questão, em palavras do enunciado ou nos cantos da tela."
 }

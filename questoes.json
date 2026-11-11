@@ -15,9 +15,11 @@
         ["Marcar", "Comércio", "Suspensão", "Ângulo"]
     ],
 
-    "corretas" : [1, 2, 2, 3, ["bt-inline", "palavra", 1]],
+    "corretas" : [1, 2, 2, 3, ["bt-numero"]],
 
     "qtd_de_fases" : 5,
 
-    "instrucoes" : "Para avançar pelas 50 questões sem frustrações, a regra de ouro é desconfiar de tudo, pois as respostas raramente são óbvias e o jogo foi feito para induzir ao erro. Muitas vezes, a alternativa correta não está nos botões principais, mas sim escondida no número da própria questão, em palavras do enunciado ou nos cantos da tela."
+    "instrucoes" : "Para avançar pelas 50 questões sem frustrações, a regra de ouro é desconfiar de tudo, pois as respostas raramente são óbvias e o jogo foi feito para induzir ao erro. Muitas vezes, a alternativa correta não está nos botões principais, mas sim escondida no número da própria questão, em palavras do enunciado ou nos cantos da tela.",
+
+    "credits": "<h1> Em desenvolvimento: "
 }

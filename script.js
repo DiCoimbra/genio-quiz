@@ -1,5 +1,17 @@
 //SETOR DE VARIÁVEIS
 //Se possível, declarem suas variáveis nesse primeiro setor do código pra deixar organizado
+let seg_ranked = 0;
+let pontos_ranked = 1000;
+let scoreboard_ranked;
+let contemp = 0;
+let progresso = 0;
+
+const barra = document.getElementById("barra_ranked");
+const useranked = document.getElementById("user_ranked");
+const pontosranked = document.getElementById("points_ranked");
+const dataranked = document.getElementById("data_ranked");
+const bt_temp = document.getElementById("botaotemp");
+
 const h2 = document.getElementById("num-questao");
 const h4 = document.getElementById("enun-questao");
 
@@ -129,6 +141,8 @@ function recomecar() {
     botao_instrucoes.removeAttribute("hidden");
     botao_leaderboard.removeAttribute("hidden");
     Tabela_HTML.hidden = true;
+    bt_temp.hidden = true;
+    barra.hidden = true;
 
     h4.setAttribute("hidden", true);
     h2.setAttribute("hidden", true);
@@ -168,4 +182,22 @@ function tabelaTemporario() {
     botao_recomecar.removeAttribute("hidden");
     botao_recomecar.innerHTML = "Voltar";
     Tabela_HTML.removeAttribute("hidden");
+    bt_temp.hidden = false;
+    barra.hidden = false;
+}
+
+function temporario() {
+    contemp++;
+    if (contemp % 2 !== 0) {
+        scoreboard_ranked = setInterval(function(){
+            seg_ranked++;
+            barra.style.width = (pontos_ranked / 20) + '%';
+        if (pontos_ranked > 0){
+            pontos_ranked--;
+        }
+    }, 25)
+    }if (contemp % 2 == 0) {
+        clearInterval(scoreboard_ranked);
+        pontosranked.innerHTML = pontos_ranked;
+    }
 }

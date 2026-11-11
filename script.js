@@ -52,26 +52,26 @@ function carregarConteudo() {
             const tipo = corretas[fase][0];
 
             if (tipo === "bt-numero") {
-                h2.innerHTML = 'Questão <button id="bt-numero" onclick="botaoEspecial()">' + (fase + 1) + "</button>";
+                h2.innerHTML = 'Questão <button id="bt-numero" onclick="botaoEspecial()" tabindex="-1">' + (fase + 1) + "</button>";
             } else if (tipo === "bt-inline") {
                 let palavra = "";
                 let contador = 0;
                 const txt = enunciados[fase];
-                
+
                 for (let i = 0; i < txt.length; i++) {
-                    if (txt[i] !== " ") {
+                    if (/^[a-zA-Z]+$/.test(txt[i])) {
                         palavra += txt[i];
                     } else if (palavra === corretas[fase][1]) {
                         contador++;
                         if (contador !== corretas[fase][2]) {
                             palavra = "";
-                            continue
+                            continue;
                         }
                         const txt_anterior = txt.slice(0, i - palavra.length);
                         const txt_posterior = txt.slice(i);
 
-                        h4.innerHTML = txt_anterior + '<button id="bt-inline" onclick="botaoEspecial()">' + palavra + '</button>' + txt_posterior;
-                        break
+                        h4.innerHTML = txt_anterior + '<button id="bt-inline" onclick="botaoEspecial()" tabindex="-1">' + palavra + '</button>' + txt_posterior;
+                        break;
                     } else {
                         palavra = "";
                     }
@@ -138,6 +138,8 @@ function botaoEspecial() {
         if (fase !== qtd_de_fases - 1) {
             fase++;
             carregarConteudo();
+        } else {
+            telaDeFinal();
         }
     })
 }
